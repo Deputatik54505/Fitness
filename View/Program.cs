@@ -12,20 +12,28 @@ namespace View
             Console.WriteLine("input your name");
             string name = Console.ReadLine();
 
-            Console.WriteLine("input your age");
-            int age = int.Parse(Console.ReadLine());
+            UserController user = new UserController(name);
 
-            Console.WriteLine("input your weight");
-            double weight = int.Parse(Console.ReadLine());
+            if (user.isNewUser)
+            {
 
-            Console.WriteLine("You have female metabolism, it is true or false?");
-            bool gender = bool.Parse(Console.ReadLine());
+                // TODO: сделать user-frendly проверку
+                Console.WriteLine("Input weight:");
+                double weight = double.Parse(Console.ReadLine());
+                Console.WriteLine("Input height:");
+                int height = int.Parse(Console.ReadLine());
+                Console.WriteLine("Input age:");
+                int age = int.Parse(Console.ReadLine());
+                Console.WriteLine("You are female. It is true or false");
+                bool gender = bool.Parse(Console.ReadLine());
 
-            Console.WriteLine("input your height");
-            int height = int.Parse(Console.ReadLine());
+                user.AddСharacteristics(weight,height,age,gender);
+            }
 
-            UserController user = new UserController(name, age, weight, height, gender);
-            user.Save();
+
+
+            Console.WriteLine(user.activeUser);
+            Console.ReadLine();
         }
     }
 }

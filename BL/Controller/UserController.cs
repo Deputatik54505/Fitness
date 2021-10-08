@@ -2,40 +2,73 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 
 namespace BL.Controller
 {
     public class UserController
     {
-        public User User { get; }
+        public List<User> Users { get; }
+        public User activeUser { get; }
+        public bool isNewUser { get; } = false;
 
-        public UserController(string name, int age, double weight,
-                    int height, bool gender)
+
+        public UserController(string name)
         {
-            User user = new User(name, age, weight, height, gender);
-            User = user;
-        }
-        public UserController()
-        {
-            var formatter = new BinaryFormatter();
-            using (var fileStream = new FileStream("user.dat", FileMode.OpenOrCreate))
+            if (string.IsNullOrWhiteSpace(name))
             {
-                User = formatter.Deserialize(fileStream) as User;
+                throw new ArgumentNullException("name cant be empty", nameof(name));
+            }
+            Users = Load();
+            activeUser = Users.SingleOrDefault(u => u.Name == name);
+            if (activeUser == null)
+            {
+                activeUser = new User(name);
+                Users.Add(activeUser);
+                isNewUser = true;
+                Save();
             }
         }
 
-/// <summary>
-/// Save user data
-/// </summary>
-public void Save() 
+        /// <summary>
+        /// Load users data
+        /// </summary>
+        /// <returns></returns>
+        private List<User> Load()
+        {
+            var formatter = new BinaryFormatter();
+            using (var fileStream = new FileStream("user.dat", FileMode.OpenOrCreate))
+            {
+                if (fileStream.Length > 0 && formatter.Deserialize(fileStream) is List<User> users)
+                {
+                    return users;
+                }
+                return new List<User>();
+            }
+        }
+
+        public void AddСharacteristics(double weight, int height, int age, bool gender)
+        {
+            activeUser.Age = age;
+            activeUser.Weight = weight;
+            activeUser.Height = height;
+            activeUser.Gender = gender;
+            Save();
+
+            // TODO: проверка входных значений
+        }
+
+        /// <summary>
+        /// Save user data
+        /// </summary>
+        public void Save()
         {
             var formatter = new BinaryFormatter();
 
             using (var fileStream = new FileStream("user.dat", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fileStream,User);
+                formatter.Serialize(fileStream, Users);
             }
         }
 
