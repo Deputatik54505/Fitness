@@ -48,15 +48,10 @@ namespace BL.Controller
             }
         }
 
-        public void AddСharacteristics(double weight, int height, int age, bool gender)
+        public void UpdateUserData(double weight, int height, int age, bool gender)
         {
-            activeUser.Age = age;
-            activeUser.Weight = weight;
-            activeUser.Height = height;
-            activeUser.Gender = gender;
+            activeUser.AddСharacteristics(weight,height,age,gender);
             Save();
-
-            // TODO: проверка входных значений
         }
 
         /// <summary>
