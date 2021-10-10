@@ -7,12 +7,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace BL.Controller
 {
-    public class UserController
+    public class UserController : ControllerBase
     {
         public List<User> Users { get; }
         public User activeUser { get; }
         public bool isNewUser { get; } = false;
-
+        const string FILE_NAME = "user.dat";
 
         public UserController(string name)
         {
@@ -31,23 +31,7 @@ namespace BL.Controller
             }
         }
 
-        /// <summary>
-        /// Load users data
-        /// </summary>
-        /// <returns></returns>
-        private List<User> Load()
-        {
-            var formatter = new BinaryFormatter();
-            using (var fileStream = new FileStream("user.dat", FileMode.OpenOrCreate))
-            {
-                if (fileStream.Length > 0 && formatter.Deserialize(fileStream) is List<User> users)
-                {
-                    return users;
-                }
-                return new List<User>();
-            }
-        }
-
+       
         public void UpdateUserData(double weight, int height, int age, bool gender)
         {
             activeUser.AddСharacteristics(weight,height,age,gender);
@@ -59,12 +43,16 @@ namespace BL.Controller
         /// </summary>
         public void Save()
         {
-            var formatter = new BinaryFormatter();
+            Save<List<User>>(FILE_NAME, Users);
+        }
 
-            using (var fileStream = new FileStream("user.dat", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fileStream, Users);
-            }
+        /// <summary>
+        /// Load users data
+        /// </summary>
+        /// <returns></returns>
+        private List<User> Load()
+        {
+            return Load<List<User>>(FILE_NAME) ?? new List<User>();
         }
 
     }
