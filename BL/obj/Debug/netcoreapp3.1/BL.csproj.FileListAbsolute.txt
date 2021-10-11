@@ -1,7 +1,6 @@
 C:\Users\plato\source\repos\Fitness\BL\bin\Debug\netcoreapp3.1\BL.deps.json
 C:\Users\plato\source\repos\Fitness\BL\bin\Debug\netcoreapp3.1\BL.dll
 C:\Users\plato\source\repos\Fitness\BL\bin\Debug\netcoreapp3.1\BL.pdb
-C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.csproj.AssemblyReference.cache
 C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.AssemblyInfoInputs.cache
 C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.AssemblyInfo.cs
 C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.csproj.CoreCompileInputs.cache

@@ -1,7 +1,3 @@
-C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.csproj.AssemblyReference.cache
-C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.AssemblyInfoInputs.cache
-C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.AssemblyInfo.cs
-C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.csproj.CoreCompileInputs.cache
 C:\Users\plato\source\repos\Fitness\View\bin\Debug\netcoreapp3.1\View.exe
 C:\Users\plato\source\repos\Fitness\View\bin\Debug\netcoreapp3.1\View.deps.json
 C:\Users\plato\source\repos\Fitness\View\bin\Debug\netcoreapp3.1\View.runtimeconfig.json
@@ -10,9 +6,13 @@ C:\Users\plato\source\repos\Fitness\View\bin\Debug\netcoreapp3.1\View.dll
 C:\Users\plato\source\repos\Fitness\View\bin\Debug\netcoreapp3.1\View.pdb
 C:\Users\plato\source\repos\Fitness\View\bin\Debug\netcoreapp3.1\BL.dll
 C:\Users\plato\source\repos\Fitness\View\bin\Debug\netcoreapp3.1\BL.pdb
+C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.csproj.AssemblyReference.cache
+C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.Languages.LanguageEn-uk.resources
+C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.csproj.GenerateResource.cache
+C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.AssemblyInfoInputs.cache
+C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.AssemblyInfo.cs
+C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.csproj.CoreCompileInputs.cache
 C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.csproj.CopyComplete
 C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.dll
 C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.pdb
 C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.genruntimeconfig.cache
-C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.csproj.GenerateResource.cache
-C:\Users\plato\source\repos\Fitness\View\obj\Debug\netcoreapp3.1\View.Languages.LanguageEn-uk.resources

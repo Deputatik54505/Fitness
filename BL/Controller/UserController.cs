@@ -41,7 +41,7 @@ namespace BL.Controller
         /// <summary>
         /// Save user data
         /// </summary>
-        public void Save()
+        void Save()
         {
             Save<List<User>>(FILE_NAME, Users);
         }
@@ -50,7 +50,7 @@ namespace BL.Controller
         /// Load users data
         /// </summary>
         /// <returns></returns>
-        private List<User> Load()
+        List<User> Load()
         {
             return Load<List<User>>(FILE_NAME) ?? new List<User>();
         }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BL.Controller
 {
-    [Serializable]
+
     public class EatingController : ControllerBase
     {
         #region Variabels
