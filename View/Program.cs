@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Globalization;
+using System.Resources;
 using BL.Controller;
 
 namespace View
@@ -8,9 +10,10 @@ namespace View
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
+            var culture = CultureInfo.CreateSpecificCulture("en-uk");
+            var resourseManager = new ResourceManager("View.Languages.LanguageEn-uk", typeof(Program).Assembly);
             // TODO: Good morning/evening/night  ! 
-            Console.WriteLine("input your name");
+            Console.WriteLine(resourseManager.GetString("Hello"));
             string name = Console.ReadLine();
 
             UserController user = new UserController(name);

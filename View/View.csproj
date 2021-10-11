@@ -10,4 +10,19 @@
     <ProjectReference Include="..\BL\BL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Languages\LanguageEn-uk.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LanguageEn-uk.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Languages\LanguageEn-uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageEn-uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
