@@ -12,31 +12,54 @@ namespace View
         {
             var culture = CultureInfo.CreateSpecificCulture("en-uk");
             var resourseManager = new ResourceManager("View.Languages.LanguageEn-uk", typeof(Program).Assembly);
-            // TODO: Good morning/evening/night  ! 
+            
             Console.WriteLine(resourseManager.GetString("Hello"));
+            Console.WriteLine(resourseManager.GetString("YourName"));
             string name = Console.ReadLine();
 
-            UserController user = new UserController(name);
-
-            if (user.isNewUser)
+            UserController userController = new UserController(name);
+            if (userController.isNewUser)
             {
 
-                var weight = Input<double>("weight");
+                var weight = Parser<double>("weight");
 
-                var height = Input<int>("height");
+                var height = Parser<int>("height");
 
-                var age = Input<int>("age");
+                var age = Parser<int>("age");
 
-                var gender = Input<bool>("gendder (female - true; male - false)");
+                var gender = Parser<bool>("gendder (female - true; male - false)");
 
-                user.UpdateUserData(weight,height,age,gender);
+                userController.UpdateUserData(weight,height,age,gender);
+            }
+
+            Console.WriteLine(resourseManager.GetString("AskAct"));
+            var key = Console.ReadKey();
+            switch (key.Key)
+            {
+                case ConsoleKey.A:
+                    break;
+                case ConsoleKey.E:
+                    break;
+                case ConsoleKey.Q:
+                    Environment.Exit(0);
+                    break;
+
             }
 
 
 
-            Console.WriteLine(user.activeUser);
+            Console.WriteLine(userController.activeUser);
             Console.ReadLine();
-            T Input<T>(string name)
+
+            void AddEating()
+            {
+                Console.WriteLine("");
+                var eatingController = new EatingController(userController.activeUser);
+                var food = Console.ReadLine();
+
+            }
+            
+            T Parser<T>(string name)
             {
                 while (true)
                 {

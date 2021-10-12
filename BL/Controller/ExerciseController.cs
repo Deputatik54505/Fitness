@@ -6,19 +6,26 @@ using System.Text;
 
 namespace BL.Controller
 {
-    
+    /// <summary>
+    /// Controller of exercise
+    /// </summary>
     public class ExerciseController:ControllerBase
     {
+        #region variabels
         User User { get; }
         public List<Exercise> Exercises;
         public List<Activity> Activities;
         const string EXERCISES_FILNAME = "exercises.dat";
         const string ACTIVITIES_FILNAME = "activities.dat";
+        #endregion
 
 
-
-
-        public void Add(Activity activity, double duration)
+        /// <summary>
+        /// Add new exercise
+        /// </summary>
+        /// <param name="activity">Kind of activity</param>
+        /// <param name="duration">Duration of activity</param>
+        public void AddExercise(Activity activity, double duration)
         {
             var act = Activities.SingleOrDefault(a=>a.Name==activity.Name);
             if (act == null)
@@ -32,7 +39,10 @@ namespace BL.Controller
 
 
 
-
+        /// <summary>
+        /// Constructor with only name
+        /// </summary>
+        /// <param name="user"></param>
         public ExerciseController(User user)
         {
             User = user ?? throw new ArgumentNullException("User cant be null", nameof(user));
@@ -47,6 +57,7 @@ namespace BL.Controller
         {
             return Load<List<Activity>>(ACTIVITIES_FILNAME) ?? new List<Activity>();
         }
+        
         void Save()
         {
             Save<List<Exercise>>(EXERCISES_FILNAME,Exercises);

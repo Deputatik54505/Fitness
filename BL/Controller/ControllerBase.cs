@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 
 namespace BL.Controller
 {
+    /// <summary>
+    /// Abstruct class. created to minimize code duplication 
+    /// </summary>
     public abstract class ControllerBase
     {
-        protected void Save<T>(string fileName, T obj )
+        protected void Save<T>(string fileName, T obj)
         {
             var formatter = new BinaryFormatter();
 
             using (var fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fileStream, obj );
+                formatter.Serialize(fileStream, obj);
             }
         }
-
+   
         protected T Load<T>(string fileName)
         {
             var formatter = new BinaryFormatter();

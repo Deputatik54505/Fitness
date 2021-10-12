@@ -13,6 +13,9 @@ namespace BL.Model
         public int Age { get; private set; }
         public double Weight { get; private set; }
         public int Height { get; private set; }
+        /// <summary>
+        /// gender of user (true - female, false - male)
+        /// </summary>
         public bool Gender { get; private set; }
 
         
@@ -25,7 +28,7 @@ namespace BL.Model
         /// <param name="age"> user age </param>
         /// <param name="weight"> user weight </param>
         /// <param name="height"> user height </param>
-        /// <param name="gender"> does user have a female metabolism or not </param>
+        /// <param name="gender"> does user have a female metabolism or not (female - true , male - false) </param>
         public User(string name, int age, double weight,
                     int height, bool gender)
         {

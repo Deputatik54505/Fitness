@@ -11,9 +11,19 @@ namespace BL.Controller
     {
         public List<User> Users { get; }
         public User activeUser { get; }
+        /// <summary>
+        /// bool variable to define a user without characteristics
+        /// </summary>
         public bool isNewUser { get; } = false;
+
         const string FILE_NAME = "user.dat";
 
+        /// <summary>
+        /// Constructor 
+        /// Try to find user by name in data
+        /// If its fall, method create a new user with this name.
+        /// </summary>
+        /// <param name="name"></param>
         public UserController(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -31,7 +41,13 @@ namespace BL.Controller
             }
         }
 
-       
+        /// <summary>
+        /// Method of adding features to a user that was created without them
+        /// </summary>
+        /// <param name="weight">Weight</param>
+        /// <param name="height">Height</param>
+        /// <param name="age">Age</param>
+        /// <param name="gender">Gender</param>
         public void UpdateUserData(double weight, int height, int age, bool gender)
         {
             activeUser.AddСharacteristics(weight,height,age,gender);

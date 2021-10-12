@@ -19,7 +19,7 @@ namespace BL.Controller.Tests
             var activity = new Activity(activityName,rnd.Next(2,200));
 
 
-            exerciseController.Add(activity,rnd.Next(0,100));
+            exerciseController.AddExercise(activity,rnd.Next(0,100));
 
             Assert.AreEqual(exerciseController.Activities.First().Name, activity.Name);
             

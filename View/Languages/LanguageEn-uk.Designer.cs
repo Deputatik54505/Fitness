@@ -61,11 +61,33 @@ namespace View.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на What u wont to do?
+        ///
+        ///A - add activity
+        ///E - add eating
+        ///Q - exit.
+        /// </summary>
+        internal static string AstAck {
+            get {
+                return ResourceManager.GetString("AstAck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Good Morning, Sir.
         /// </summary>
         internal static string Hello {
             get {
                 return ResourceManager.GetString("Hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Whats your name?.
+        /// </summary>
+        internal static string YourName {
+            get {
+                return ResourceManager.GetString("YourName", resourceCulture);
             }
         }
     }

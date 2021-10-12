@@ -117,7 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AstAck" xml:space="preserve">
+    <value>What u wont to do?
+
+A - add activity
+E - add eating
+Q - exit</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Good Morning, Sir</value>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>Whats your name?</value>
   </data>
 </root>
