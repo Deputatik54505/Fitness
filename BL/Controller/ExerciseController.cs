@@ -20,23 +20,26 @@ namespace BL.Controller
         #endregion
 
 
-      
+        public Activity CreateActivity(string name, double caloriesPerMinute)
+        {
+            var act = new Activity(name,caloriesPerMinute);
+            Activities.Add(act);
+            Save();
+            return act;
+        }
         public bool AddExercise(string activityName, double duration)
         {
             var activity = Activities.SingleOrDefault(a=>a.Name== activityName);
             if (activity == null)
-                return false
+                return false;
             var exercise = new Exercise(activity,duration,User);
             Exercises.Add(exercise);
             Save();
+            return true;
         }
 
         //TODO: создать базовый класс для приемов пищи и упражнений
 
-        /// <summary>
-        /// Constructor with only name
-        /// </summary>
-        /// <param name="user"></param>
         public ExerciseController(User user)
         {
             User = user ?? throw new ArgumentNullException("User cant be null", nameof(user));

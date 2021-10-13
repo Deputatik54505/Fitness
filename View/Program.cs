@@ -39,6 +39,7 @@ namespace View
             switch (key.Key)
             {
                 case ConsoleKey.A:
+                    AddAct();
                     break;
                 case ConsoleKey.E:
                     AddEating();
@@ -71,7 +72,14 @@ namespace View
             {
                 Console.WriteLine("input activity name");
                 var actName = Console.ReadLine();
-
+                var duration = Parser<double>("duration");
+                if (!exerciseController.AddExercise(actName, duration))
+                {
+                    var cpm = Parser<double>("energy coast of activity (callories per minute)");
+                    exerciseController.CreateActivity(actName,cpm);
+                    exerciseController.AddExercise(actName,duration);
+                }
+                Console.WriteLine("action was added");
             }
 
             T Parser<T>(string name)
