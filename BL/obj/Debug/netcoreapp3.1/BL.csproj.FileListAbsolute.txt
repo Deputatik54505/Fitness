@@ -6,3 +6,4 @@ C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.AssemblyInfo.c
 C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.csproj.CoreCompileInputs.cache
 C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.dll
 C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.pdb
+C:\Users\plato\source\repos\Fitness\BL\obj\Debug\netcoreapp3.1\BL.csproj.AssemblyReference.cache

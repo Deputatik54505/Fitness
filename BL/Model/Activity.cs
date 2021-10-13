@@ -11,23 +11,20 @@ namespace BL.Model
     [Serializable]
     public class Activity
     {
-        /// <summary>
-        /// Name of activity
-        /// </summary>
+
         public string Name { get; }
-        /// <summary>
-        /// Energy coast of activity per minute
-        /// </summary>
         public double CaloriesPerMinute { get; }
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="name">Name of activity</param>
-        /// <param name="caloriesPerMinute">Energy coast of activity per minute</param>
-        public Activity(string name, double caloriesPerMinute)
+        public double Duration { get; }
+        public User User { get; }
+
+        public Activity(string name, double caloriesPerMinute, double duration, User user)
         {
             if (caloriesPerMinute < 0 || caloriesPerMinute > 100) 
                 throw new ArgumentException("incorrect value of energy coast", nameof(caloriesPerMinute));
+            if (duration < 0)
+                throw new ArgumentNullException("duration of exercise cant be less than 0");
+            User = user ?? throw new ArgumentNullException("User cant be null", nameof(user));
+            Duration = duration;
             Name = name;
             CaloriesPerMinute = caloriesPerMinute;
         }

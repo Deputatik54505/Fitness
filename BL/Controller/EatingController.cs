@@ -24,19 +24,22 @@ namespace BL.Controller
             Eating = LoadEatingData();
         }
         
-        public void AddFood(FoodModel newFood)
+        
+        public FoodModel CreateFood(string name, double proteins, double fats, double carbs, double calories)
         {
-            Foods.Add(newFood);
+            var food = new FoodModel(name, proteins, fats, carbs, calories);
+            Foods.Add(food);
             Save();
+            return food;
         }
-
-        public void AddFoodToEating(FoodModel food, double weight)
+        public bool AddFoodToEating(string foodName, double weight)
         {
-            var foodInList = Foods.SingleOrDefault(f=>f.Name==food.Name);
-            if (foodInList == null)
-                AddFood(food);
+            var food = Foods.SingleOrDefault(f=>f.Name== foodName);
+            if (food == null)
+                return false;
             Eating.AddFood(new Portion(food,weight));
             Save();
+            return true;
         }
 
 
@@ -44,7 +47,7 @@ namespace BL.Controller
         void Save()
         {
             Save<List<FoodModel>>(FOODS_FILE_NAME, Foods);
-            Save<Eating>(FOODS_FILE_NAME, Eating);
+            Save<Eating>(EATINGS_FILE_NAME, Eating);
         }
         List<FoodModel> LoadFoodData()
         {

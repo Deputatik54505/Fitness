@@ -20,24 +20,18 @@ namespace BL.Controller
         #endregion
 
 
-        /// <summary>
-        /// Add new exercise
-        /// </summary>
-        /// <param name="activity">Kind of activity</param>
-        /// <param name="duration">Duration of activity</param>
-        public void AddExercise(Activity activity, double duration)
+      
+        public bool AddExercise(string activityName, double duration)
         {
-            var act = Activities.SingleOrDefault(a=>a.Name==activity.Name);
-            if (act == null)
-            {
-                Activities.Add(activity);
-            }
+            var activity = Activities.SingleOrDefault(a=>a.Name== activityName);
+            if (activity == null)
+                return false
             var exercise = new Exercise(activity,duration,User);
             Exercises.Add(exercise);
             Save();
         }
 
-
+        //TODO: создать базовый класс для приемов пищи и упражнений
 
         /// <summary>
         /// Constructor with only name

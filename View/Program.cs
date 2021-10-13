@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Resources;
 using BL.Controller;
 
@@ -31,14 +32,16 @@ namespace View
 
                 userController.UpdateUserData(weight,height,age,gender);
             }
-
-            Console.WriteLine(resourseManager.GetString("AskAct"));
+            var eatingController = new EatingController(userController.activeUser);
+            var exerciseController = new ExerciseController(userController.activeUser);
+            Console.WriteLine("Q - exit, E - add eating, A - add activity");
             var key = Console.ReadKey();
             switch (key.Key)
             {
                 case ConsoleKey.A:
                     break;
                 case ConsoleKey.E:
+                    AddEating();
                     break;
                 case ConsoleKey.Q:
                     Environment.Exit(0);
@@ -47,23 +50,35 @@ namespace View
             }
 
 
-
-            Console.WriteLine(userController.activeUser);
-            Console.ReadLine();
-
             void AddEating()
             {
-                Console.WriteLine("");
-                var eatingController = new EatingController(userController.activeUser);
-                var food = Console.ReadLine();
+                Console.WriteLine("Input food name");
+                var foodName = Console.ReadLine();
+                var weight = Parser<double>("weight of food");
+
+                if (!eatingController.AddFoodToEating(foodName, weight))
+                {
+                    var proteins = Parser<double>("proteins");
+                    var fats = Parser<double>("fats");
+                    var carbs = Parser<double>("carbs");
+                    var calories = Parser<double>("calories");
+                    eatingController.CreateFood(foodName,proteins,fats,carbs,calories);
+                    eatingController.AddFoodToEating(foodName, weight);
+                }
+                Console.WriteLine(eatingController.Foods[0]);
+            }
+            void AddAct()
+            {
+                Console.WriteLine("input activity name");
+                var actName = Console.ReadLine();
 
             }
-            
+
             T Parser<T>(string name)
             {
                 while (true)
                 {
-                    Console.WriteLine($"Input your {name}");
+                    Console.WriteLine($"Input {name}");
                     var value = Console.ReadLine();
                     try
                     {
