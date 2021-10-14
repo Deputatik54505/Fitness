@@ -20,8 +20,8 @@ namespace BL.Controller.Tests
             var eatingController = new EatingController(userController.activeUser);
             var food = new FoodModel(foodName, rnd.Next(1, 99), rnd.Next(1,99), rnd.Next(1, 99), rnd.Next(1, 399));
 
-
-            eatingController.AddFoodToEating(food,rnd.Next(100,1000));
+            eatingController.CreateFood(foodName, rnd.Next(1, 99), rnd.Next(1, 99), rnd.Next(1, 99), rnd.Next(1, 399));
+            eatingController.AddFoodToEating(foodName,rnd.Next(100,1000));
 
 
             Assert.AreEqual(food.Calories, eatingController.Eating.Ration[0].Food.Calories);

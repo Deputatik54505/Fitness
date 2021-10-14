@@ -48,16 +48,17 @@ namespace BL.Controller
         /// <param name="height">Height</param>
         /// <param name="age">Age</param>
         /// <param name="gender">Gender</param>
-        public void UpdateUserData(double weight, int height, int age, bool gender)
+        public void UpdateUserData(double weight, int height, int age, bool gender, double actCoeff)
         {
-            activeUser.AddСharacteristics(weight,height,age,gender);
+            activeUser.AddСharacteristics(weight,height,age,gender, actCoeff);
             Save();
         }
+
 
         /// <summary>
         /// Save user data
         /// </summary>
-        void Save()
+        public void Save()
         {
             Save<List<User>>(FILE_NAME, Users);
         }

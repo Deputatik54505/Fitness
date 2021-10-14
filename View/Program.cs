@@ -30,26 +30,29 @@ namespace View
 
                 var gender = Parser<bool>("gendder (female - true; male - false)");
 
-                userController.UpdateUserData(weight,height,age,gender);
+                var actCoeff = Parser<double>("action activity (1.2 - 2.0 )");
+                userController.UpdateUserData(weight,height,age,gender, actCoeff);
             }
             var eatingController = new EatingController(userController.activeUser);
             var exerciseController = new ExerciseController(userController.activeUser);
             Console.WriteLine("Q - exit, E - add eating, A - add activity");
             var key = Console.ReadKey();
-            switch (key.Key)
-            {
-                case ConsoleKey.A:
-                    AddAct();
-                    break;
-                case ConsoleKey.E:
-                    AddEating();
-                    break;
-                case ConsoleKey.Q:
-                    Environment.Exit(0);
-                    break;
-
-            }
-
+            
+                switch (key.Key)
+                {
+                    case ConsoleKey.A:
+                        AddAct();
+                        break;
+                    case ConsoleKey.E:
+                        AddEating();
+                        break;
+                    case ConsoleKey.Q:
+                        Environment.Exit(0);
+                        break;
+                    case ConsoleKey.C:
+                        Console.WriteLine(userController.activeUser.CaloriesBalance); 
+                        break;
+                }
 
             void AddEating()
             {
@@ -98,6 +101,8 @@ namespace View
                     }
                 }
             }
+
+            userController.Save();
         }
     }
 }

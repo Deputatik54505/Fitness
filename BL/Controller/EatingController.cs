@@ -9,7 +9,7 @@ namespace BL.Controller
     public class EatingController : ControllerBase
     {
         #region Variabels
-        public User User { get; }
+        User User { get; }
         public List<FoodModel> Foods { get; }
         public Eating Eating { get; }
         const string FOODS_FILE_NAME = "food.dat";
@@ -39,6 +39,7 @@ namespace BL.Controller
                 return false;
             Eating.AddFood(new Portion(food,weight));
             Save();
+            this.User.CBChange(food.Calories*weight);
             return true;
         }
 

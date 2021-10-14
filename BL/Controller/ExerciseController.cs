@@ -2,13 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BL.Controller
 {
-    /// <summary>
-    /// Controller of exercise
-    /// </summary>
     public class ExerciseController:ControllerBase
     {
         #region variabels
@@ -32,13 +28,12 @@ namespace BL.Controller
             var activity = Activities.SingleOrDefault(a=>a.Name== activityName);
             if (activity == null)
                 return false;
-            var exercise = new Exercise(activity,duration,User);
+            var exercise = new Exercise(activity,duration);
             Exercises.Add(exercise);
+            this.User.CBChange(-exercise.Activity.CaloriesPerMinute*duration);
             Save();
             return true;
         }
-
-        //TODO: создать базовый класс для приемов пищи и упражнений
 
         public ExerciseController(User user)
         {

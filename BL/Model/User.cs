@@ -10,14 +10,16 @@ namespace BL.Model
     {
         #region parameters
         public string Name { get; }
-        public int Age { get; private set; }
-        public double Weight { get; private set; }
-        public int Height { get; private set; }
+        private int Age {  get; set; }
+        private double Weight { get; set; }
+        private int Height { get;  set; }
         /// <summary>
         /// gender of user (true - female, false - male)
         /// </summary>
-        public bool Gender { get; private set; }
+        private bool Gender { get;  set; }
+        private double ActCoeff { get;  set; }
 
+        public double CaloriesBalance { get; private set; }
         
         #endregion
 
@@ -29,18 +31,7 @@ namespace BL.Model
         /// <param name="weight"> user weight </param>
         /// <param name="height"> user height </param>
         /// <param name="gender"> does user have a female metabolism or not (female - true , male - false) </param>
-        public User(string name, int age, double weight,
-                    int height, bool gender)
-        {
-
-            VariableTesting(weight, height, age);
-
-            Name = name ?? throw new ArgumentNullException("name cant be null", nameof(name));
-            Age = age;
-            Weight = weight;
-            Height = height;
-            Gender = gender;
-        }
+       
         /// <summary>
         /// constructor of user model, with only name
         /// </summary>
@@ -58,35 +49,38 @@ namespace BL.Model
         /// <param name="height"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
-        public void AddСharacteristics(double weight, int height, int age, bool gender)
+        public void AddСharacteristics(double weight, int height, int age, bool gender, double actCoeff)
         {
-            VariableTesting(weight,height,age);
+            if (age <= 10 || age > 100)
+                throw new ArgumentException("incorrect age:", nameof(age));
+            if (weight < 30 || weight > 200)
+                throw new ArgumentException("incorrect weight", nameof(weight));
+            if (height < 50 || height > 300)
+                throw new ArgumentException("incorrect height", nameof(height));
+            if (actCoeff < 1.2 || actCoeff > 2)
+                throw new ArgumentException("incorrect activity coeffecient", nameof(actCoeff));
             Age = age;
             Weight = weight;
             Height = height;
             Gender = gender;
+            ActCoeff = actCoeff;
+            var genderfluens = 0;
+            if (Gender)
+                genderfluens = -161;
+            else
+                genderfluens = 5;
+            CaloriesBalance = - (Weight * 10 + Height * 6.25 - Age * 5 + genderfluens) * ActCoeff;
         }
 
-
+        public void CBChange(double changing)
+        {
+            CaloriesBalance += changing;
+        }
+        
         public override string ToString()
         {
             return Name + " " + Age;
         }
        
-        void VariableTesting(double weight, int height, int age)
-        {
-            if (age <= 10 || age > 100)
-            {
-                throw new ArgumentException("incorrect age:", nameof(age));
-            }
-            if (weight < 30 || weight > 200)
-            {
-                throw new ArgumentException("incorrect weight", nameof(weight));
-            }
-            if (height < 50 || height > 300)
-            {
-                throw new ArgumentException("incorrect height", nameof(height));
-            }
-        }
     }
 }
