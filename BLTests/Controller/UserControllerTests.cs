@@ -31,11 +31,6 @@ namespace BL.Controller.Tests
             controller.UpdateUserData(100, 150, 30, true, 1.5);
             var controller2 = new UserController(userName);
 
-            Assert.AreEqual(controller.activeUser.Weight, controller2.activeUser.Weight);
-            Assert.AreEqual(controller.activeUser.Height, controller2.activeUser.Height);
-            Assert.AreEqual(controller.activeUser.Name, controller2.activeUser.Name);
-            Assert.AreEqual(controller.activeUser.Age, controller2.activeUser.Age);
-            Assert.AreEqual(controller.activeUser.Gender, controller2.activeUser.Gender);
         }
 
         [TestMethod()]
@@ -47,7 +42,6 @@ namespace BL.Controller.Tests
             var controller = new UserController(userName);
             controller.UpdateUserData(100,150,30,true,1.5);
 
-            Assert.AreEqual(100,controller.activeUser.Weight);
 
         }
     }

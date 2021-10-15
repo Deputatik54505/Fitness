@@ -30,7 +30,7 @@ namespace BL.Controller
                 return false;
             var exercise = new Exercise(activity,duration);
             Exercises.Add(exercise);
-            this.User.CBChange(-exercise.Activity.CaloriesPerMinute*duration);
+            this.User.Balance.Activity(exercise.Activity.CaloriesPerMinute*duration);
             Save();
             return true;
         }

@@ -23,8 +23,8 @@ namespace BL.Controller
             Foods = LoadFoodData();
             Eating = LoadEatingData();
         }
-        
-        
+
+
         public FoodModel CreateFood(string name, double proteins, double fats, double carbs, double calories)
         {
             var food = new FoodModel(name, proteins, fats, carbs, calories);
@@ -34,12 +34,12 @@ namespace BL.Controller
         }
         public bool AddFoodToEating(string foodName, double weight)
         {
-            var food = Foods.SingleOrDefault(f=>f.Name== foodName);
+            var food = Foods.SingleOrDefault(f => f.Name == foodName);
             if (food == null)
                 return false;
-            Eating.AddFood(new Portion(food,weight));
+            Eating.AddFood(new Portion(food, weight));
             Save();
-            this.User.CBChange(food.Calories*weight);
+            this.User.Balance.Eating(food.Calories * weight, food.Proteins * weight, food.Carbs * weight, food.Fats * weight);
             return true;
         }
 

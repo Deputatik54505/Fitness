@@ -51,7 +51,7 @@ namespace BL.Model
             ParametrsTesting(proteins, "proteins");
             ParametrsTesting(fats, "fats");
             ParametrsTesting(carbs, "carbs");
-            if (calories > 400 || calories < 0)
+            if (calories < 0)
                 throw new ArgumentException("incorrect calories per 100 gramms");
 #endregion
 
