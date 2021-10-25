@@ -29,7 +29,7 @@ namespace BL.Model
 
         public void AddСharacteristics(double weight, int height, int age, bool gender, double actCoeff)
         {
-            if (age <= 10 || age > 100)
+            if (age < 10 || age > 100)
                 throw new ArgumentException("incorrect age:", nameof(age));
             if (weight < 30 || weight > 200)
                 throw new ArgumentException("incorrect weight", nameof(weight));

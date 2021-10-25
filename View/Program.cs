@@ -71,7 +71,7 @@ namespace View
                     eatingController.CreateFood(foodName, proteins, fats, carbs, calories);
                     eatingController.AddFoodToEating(foodName, weight);
                 }
-                Console.WriteLine(eatingController.Foods[0]);
+                
             }
             void AddAct()
             {
