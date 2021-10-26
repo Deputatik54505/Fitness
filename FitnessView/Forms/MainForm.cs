@@ -25,7 +25,21 @@ namespace FitnessView.Forms
             {
                 UserController = helloForm.UserController;
             }
-           
+            #region dataGridView
+            dataGridView1.Columns.Add("Prots", "Prots");
+            dataGridView1.Columns.Add("Carbs", "Carbs");
+            dataGridView1.Columns.Add("Fats", "Fats");
+            dataGridView1.Columns.Add("Calory", "Calories");
+            dataGridView1.Rows.Add(UserController.activeUser.Balance.Proteins,
+                UserController.activeUser.Balance.Carbs,
+                UserController.activeUser.Balance.Fats,
+                UserController.activeUser.Balance.Calories);
+            dataGridView1.Rows[0].HeaderCell.Value = "balance";
+            UserController.Save();
+
+
+
+            #endregion
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,8 +55,13 @@ namespace FitnessView.Forms
 
         private void actToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var addAct = new AddActForm();
+            var addAct = new AddActForm(UserController.activeUser);
             addAct.ShowDialog();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

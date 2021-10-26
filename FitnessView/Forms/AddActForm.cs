@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BL.Controller;
+using BL.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,15 +12,35 @@ namespace FitnessView.Forms
 {
     public partial class AddActForm : Form
     {
-        public AddActForm()
+        ExerciseController actController;
+        public AddActForm(User user)
         {
+            actController = new ExerciseController(user);
             InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var addExercise = new NewActForm();
+            var addExercise = new NewActForm(actController);
             addExercise.ShowDialog();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+        }
+
+        private void AddActForm_Load(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+            foreach (var act in  actController.Activities)
+                comboBox1.Items.Add(act);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            actController.AddExercise(comboBox1.Text,(double)numericUpDown1.Value);
+            Close();
         }
     }
 }

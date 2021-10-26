@@ -37,8 +37,10 @@ namespace BL.Controller
                 activeUser = new User(name);
                 Users.Add(activeUser);
                 isNewUser = true;
-                Save();
             }
+            else
+                activeUser.ThrowBalance();
+            
         }
 
         /// <summary>
@@ -60,7 +62,7 @@ namespace BL.Controller
         /// </summary>
         public void Save()
         {
-            Save<List<User>>(FILE_NAME, Users);
+            Save(FILE_NAME, Users);
         }
 
         /// <summary>

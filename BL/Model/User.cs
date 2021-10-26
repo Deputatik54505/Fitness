@@ -10,13 +10,13 @@ namespace BL.Model
     {
         #region parameters
         public string Name { get; }
-        private int Age {  get; set; }
-        private double Weight { get; set; }
-        private int Height { get;  set; }
-        private bool Gender { get;  set; }
-        private double ActCoeff { get;  set; }
+        public int Age {  get; private set; }
+        public double Weight { get; private set; }
+        public int Height { get; private set; }
+        public bool Gender { get; private  set; }
+        public double ActCoeff { get; private set; }
 
-        public balance Balance { get; private set; }
+        public Balance Balance { get; private set; }
         
         #endregion
 
@@ -24,6 +24,7 @@ namespace BL.Model
         public User(string name)
         {
             Name = name ?? throw new ArgumentNullException("name cant be null", nameof(name));
+            
         }
 
 
@@ -53,7 +54,7 @@ namespace BL.Model
                 genderfluens = -161;
             else
                 genderfluens = 5;
-            Balance = new balance((Weight * 10 + Height * 6.25 - Age * 5 + genderfluens) * ActCoeff, 1.5 * Weight, 4 * Weight, 0.7 * Weight);
+            Balance = new Balance((Weight * 10 + Height * 6.25 - Age * 5 + genderfluens) * ActCoeff, 1.5 * Weight, 4 * Weight, 0.7 * Weight);
         }
 
         public override string ToString()

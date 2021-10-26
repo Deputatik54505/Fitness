@@ -5,13 +5,13 @@ using System.Text;
 namespace BL.Model
 {
     [Serializable]
-    public class balance
+    public class Balance
     {
         public double Calories { get; private set; }
         public double Proteins { get; private set; }
         public double Carbs { get; private set; }
         public double Fats { get; private set; }
-        public balance(double cals, double prots, double carbs, double fats)
+        public Balance(double cals, double prots, double carbs, double fats)
         {
             Calories = cals;
             Proteins = prots;

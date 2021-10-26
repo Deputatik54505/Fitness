@@ -50,7 +50,7 @@ namespace BL.Controller
             return Load<List<Activity>>(ACTIVITIES_FILNAME) ?? new List<Activity>();
         }
         
-        void Save()
+        public void Save()
         {
             Save<List<Exercise>>(EXERCISES_FILNAME,Exercises);
             Save<List<Activity>>(ACTIVITIES_FILNAME,Activities);
