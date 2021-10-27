@@ -13,9 +13,11 @@ namespace FitnessView.Forms
     public partial class AddActForm : Form
     {
         ExerciseController actController;
-        public AddActForm(User user)
+        UserController userController;
+        public AddActForm(UserController userController)
         {
-            actController = new ExerciseController(user);
+            actController = new ExerciseController(userController.activeUser);
+            this.userController = userController;
             InitializeComponent();
         }
 
@@ -30,6 +32,7 @@ namespace FitnessView.Forms
             button1.Enabled = true;
         }
 
+
         private void AddActForm_Load(object sender, EventArgs e)
         {
             button1.Enabled = false;
@@ -40,6 +43,7 @@ namespace FitnessView.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             actController.AddExercise(comboBox1.Text,(double)numericUpDown1.Value);
+            userController.Save();
             Close();
         }
     }

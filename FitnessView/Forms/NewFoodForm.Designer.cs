@@ -33,18 +33,17 @@ namespace FitnessView.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.ProtsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.CarbsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.CaloryNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.FatsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ProtsNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarbsNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CaloryNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FatsNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,33 +83,33 @@ namespace FitnessView.Forms
             this.label4.TabIndex = 3;
             this.label4.Text = "Calories";
             // 
-            // numericUpDown1
+            // ProtsNumericUpDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(66, 8);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown1.TabIndex = 4;
+            this.ProtsNumericUpDown.Location = new System.Drawing.Point(66, 8);
+            this.ProtsNumericUpDown.Name = "ProtsNumericUpDown";
+            this.ProtsNumericUpDown.Size = new System.Drawing.Size(120, 23);
+            this.ProtsNumericUpDown.TabIndex = 4;
             // 
-            // numericUpDown2
+            // CarbsNumericUpDown
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(66, 66);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown2.TabIndex = 5;
+            this.CarbsNumericUpDown.Location = new System.Drawing.Point(66, 66);
+            this.CarbsNumericUpDown.Name = "CarbsNumericUpDown";
+            this.CarbsNumericUpDown.Size = new System.Drawing.Size(120, 23);
+            this.CarbsNumericUpDown.TabIndex = 5;
             // 
-            // numericUpDown3
+            // CaloryNumericUpDown
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(66, 95);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown3.TabIndex = 6;
+            this.CaloryNumericUpDown.Location = new System.Drawing.Point(66, 95);
+            this.CaloryNumericUpDown.Name = "CaloryNumericUpDown";
+            this.CaloryNumericUpDown.Size = new System.Drawing.Size(120, 23);
+            this.CaloryNumericUpDown.TabIndex = 6;
             // 
-            // numericUpDown4
+            // FatsNumericUpDown
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(66, 37);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown4.TabIndex = 7;
+            this.FatsNumericUpDown.Location = new System.Drawing.Point(66, 37);
+            this.FatsNumericUpDown.Name = "FatsNumericUpDown";
+            this.FatsNumericUpDown.Size = new System.Drawing.Size(120, 23);
+            this.FatsNumericUpDown.TabIndex = 7;
             // 
             // button1
             // 
@@ -121,16 +120,7 @@ namespace FitnessView.Forms
             this.button1.TabIndex = 8;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(12, 205);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Save and add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -141,36 +131,37 @@ namespace FitnessView.Forms
             this.label5.TabIndex = 10;
             this.label5.Text = "Name";
             // 
-            // textBox1
+            // NameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(66, 127);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 23);
-            this.textBox1.TabIndex = 11;
+            this.NameTextBox.Location = new System.Drawing.Point(66, 127);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(120, 23);
+            this.NameTextBox.TabIndex = 11;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // NewFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(194, 240);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.numericUpDown4);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.FatsNumericUpDown);
+            this.Controls.Add(this.CaloryNumericUpDown);
+            this.Controls.Add(this.CarbsNumericUpDown);
+            this.Controls.Add(this.ProtsNumericUpDown);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "NewFoodForm";
             this.Text = "NewFoodForm";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            this.Load += new System.EventHandler(this.NewFoodForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ProtsNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarbsNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CaloryNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FatsNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,13 +173,12 @@ namespace FitnessView.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown ProtsNumericUpDown;
+        private System.Windows.Forms.NumericUpDown CarbsNumericUpDown;
+        private System.Windows.Forms.NumericUpDown CaloryNumericUpDown;
+        private System.Windows.Forms.NumericUpDown FatsNumericUpDown;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NameTextBox;
     }
 }

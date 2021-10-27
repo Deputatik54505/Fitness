@@ -38,8 +38,6 @@ namespace BL.Controller
                 Users.Add(activeUser);
                 isNewUser = true;
             }
-            else
-                activeUser.ThrowBalance();
             
         }
 

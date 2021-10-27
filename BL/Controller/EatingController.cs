@@ -9,16 +9,16 @@ namespace BL.Controller
     public class EatingController : ControllerBase
     {
         #region Variabels
-        User User { get; }
+        UserController UserController { get; }
         public List<FoodModel> Foods { get; }
         public Eating Eating { get; }
         const string FOODS_FILE_NAME = "food.dat";
         const string EATINGS_FILE_NAME = "eatings.dat";
         #endregion
 
-        public EatingController(User user)
+        public EatingController(UserController userController)
         {
-            User = user ?? throw new ArgumentNullException("User can`t be null");
+            UserController = userController ?? throw new ArgumentNullException("User can`t be null");
 
             Foods = LoadFoodData();
             Eating = LoadEatingData();
@@ -39,13 +39,14 @@ namespace BL.Controller
                 return false;
             Eating.AddFood(new Portion(food, weight));
             Save();
-            this.User.Balance.Eating(food.Calories * weight, food.Proteins * weight, food.Carbs * weight, food.Fats * weight);
+            this.UserController.activeUser.Balance.Eating(food.Calories * weight, food.Proteins * weight, food.Carbs * weight, food.Fats * weight);
+            UserController.Save();
             return true;
         }
 
 
         #region Save and load methods
-        void Save()
+        public void Save()
         {
             Save<List<FoodModel>>(FOODS_FILE_NAME, Foods);
             Save<Eating>(EATINGS_FILE_NAME, Eating);
@@ -56,7 +57,7 @@ namespace BL.Controller
         }
         Eating LoadEatingData()
         {
-            return Load<Eating>(EATINGS_FILE_NAME) ?? new Eating(User);
+            return Load<Eating>(EATINGS_FILE_NAME) ?? new Eating(UserController.activeUser);
         }
         #endregion
     }

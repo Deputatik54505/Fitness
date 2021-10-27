@@ -49,13 +49,13 @@ namespace FitnessView.Forms
 
         private void eatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var addEating = new AddEatForm();
+            var addEating = new AddEatForm(UserController);
             addEating.ShowDialog();
         }
 
         private void actToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var addAct = new AddActForm(UserController.activeUser);
+            var addAct = new AddActForm(UserController);
             addAct.ShowDialog();
         }
 

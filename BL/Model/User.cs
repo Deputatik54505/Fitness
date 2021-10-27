@@ -54,7 +54,10 @@ namespace BL.Model
                 genderfluens = -161;
             else
                 genderfluens = 5;
-            Balance = new Balance((Weight * 10 + Height * 6.25 - Age * 5 + genderfluens) * ActCoeff, 1.5 * Weight, 4 * Weight, 0.7 * Weight);
+            Balance = new Balance(Math.Round((Weight * 10 + Height * 6.25 - Age * 5 + genderfluens) * ActCoeff,1),
+                Math.Round(1.5 * Weight,1),
+                Math.Round(4 * Weight,1),
+                Math.Round(0.7 * Weight,1));
         }
 
         public override string ToString()
