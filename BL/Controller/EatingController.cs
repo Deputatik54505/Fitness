@@ -11,7 +11,8 @@ namespace BL.Controller
         #region Variabels
         UserController UserController { get; }
         public List<FoodModel> Foods { get; }
-        public Eating Eating { get; }
+        public List<Eating> Eatings { get; }
+        Dictionary<User, List<Eating>> eatingsData;
         const string FOODS_FILE_NAME = "food.dat";
         const string EATINGS_FILE_NAME = "eatings.dat";
         #endregion
@@ -21,7 +22,9 @@ namespace BL.Controller
             UserController = userController ?? throw new ArgumentNullException("User can`t be null");
 
             Foods = LoadFoodData();
-            Eating = LoadEatingData();
+            Eatings = LoadEatingsData();
+            Eatings.Add(new Eating());
+            
         }
 
 
@@ -35,9 +38,7 @@ namespace BL.Controller
         public bool AddFoodToEating(string foodName, double weight)
         {
             var food = Foods.SingleOrDefault(f => f.Name == foodName);
-            if (food == null)
-                return false;
-            Eating.AddFood(new Portion(food, weight));
+            Eatings[Eatings.Count-1].AddFood(food,weight);
             Save();
             this.UserController.activeUser.Balance.Eating(food.Calories * weight, food.Proteins * weight, food.Carbs * weight, food.Fats * weight);
             UserController.Save();
@@ -49,15 +50,19 @@ namespace BL.Controller
         public void Save()
         {
             Save<List<FoodModel>>(FOODS_FILE_NAME, Foods);
-            Save<Eating>(EATINGS_FILE_NAME, Eating);
+            eatingsData[UserController.activeUser] = Eatings;
+            Save<Dictionary<User,List<Eating>>>(EATINGS_FILE_NAME,eatingsData);
         }
         List<FoodModel> LoadFoodData()
         {
             return Load<List<FoodModel>>(FOODS_FILE_NAME) ?? new List<FoodModel>();
         }
-        Eating LoadEatingData()
+        List<Eating> LoadEatingsData()
         {
-            return Load<Eating>(EATINGS_FILE_NAME) ?? new Eating(UserController.activeUser);
+            eatingsData = Load<Dictionary<User, List<Eating>>>(EATINGS_FILE_NAME)?? new Dictionary<User, List<Eating>>();
+            if (!eatingsData.ContainsKey(UserController.activeUser))
+                eatingsData.Add(UserController.activeUser, new List<Eating>());
+            return eatingsData[UserController.activeUser];
         }
         #endregion
     }

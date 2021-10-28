@@ -11,11 +11,11 @@ namespace FitnessView.Forms
 {
     public partial class AddEatForm : Form
     {
-        EatingController eatingController;
+        public EatingController EatingController { get; private set; }
         UserController userController;
         public AddEatForm(UserController userController)
         {
-            eatingController = new EatingController(userController);
+            EatingController = new EatingController(userController);
             this.userController = userController;
             InitializeComponent();
         }
@@ -29,20 +29,19 @@ namespace FitnessView.Forms
         private void AddEatForm_Load(object sender, EventArgs e)
         {
             button1.Enabled = false;
-            foreach (var food in eatingController.Foods)
+            foreach (var food in EatingController.Foods)
                 comboBox1.Items.Add(food);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var addFood = new NewFoodForm(eatingController);
+            var addFood = new NewFoodForm(EatingController);
             addFood.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            eatingController.AddFoodToEating(comboBox1.Text, (double)numericUpDown1.Value);
-            userController.Save();
+            EatingController.AddFoodToEating(comboBox1.Text, (double)numericUpDown1.Value);
             Close();
         }
     }

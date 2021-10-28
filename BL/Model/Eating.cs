@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace BL.Model
 {
@@ -10,34 +8,27 @@ namespace BL.Model
     [Serializable]
     public class Eating
     {
-        /// <summary>
-        /// ration of this eating
-        /// </summary>
-        public List<Portion> Ration { get; private set; }
+
+
         public User User { get; }
-        /// <summary>
-        /// constructor
-        /// </summary>
-        /// <param name="user">user, who ate</param>
-        /// <param name="portion"> The portion they ate </param>
-        public Eating(User user, Portion portion = null)
+        public double Prots { get; private set; }
+        public double Fats { get; private set; }
+        public double Carbs { get; private set; }
+        public double Calories { get; private set; }
+        public Eating()
         {
-            User = user ?? throw new ArgumentNullException("User can`t be null",nameof(user));
-            if (!(portion is null))
-            {
-                Ration = new List<Portion>();
-                Ration.Add(portion);
-            }
-            else
-                Ration = new List<Portion>();
+            Prots = 0;
+            Fats = 0;
+            Carbs = 0;
+            Calories = 0;
         }
-       /// <summary>
-       /// add portion to meal
-       /// </summary>
-       /// <param name="portion"></param>
-        public void AddFood(Portion portion)
+
+        public void AddFood(FoodModel food, double weight)
         {
-            Ration.Add(portion);
+            Prots += food.Proteins * weight;
+            Fats += food.Fats * weight;
+            Carbs += food.Carbs * weight;
+            Calories += food.Calories * weight;
         }
     }
-}// TODO: comment everything
+}

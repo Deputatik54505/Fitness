@@ -51,6 +51,14 @@ namespace FitnessView.Forms
         {
             var addEating = new AddEatForm(UserController);
             addEating.ShowDialog();
+            for (int i = 1; i <= addEating.EatingController.Eatings.Count; i++)
+            {
+                dataGridView1.Rows.Add(addEating.EatingController.Eatings[i].Prots,
+                    addEating.EatingController.Eatings[i].Carbs,
+                    addEating.EatingController.Eatings[i].Fats,
+                    addEating.EatingController.Eatings[i].Calories);
+                dataGridView1.Rows[i].HeaderCell.Value = $"eating {i}";
+            }
         }
 
         private void actToolStripMenuItem_Click(object sender, EventArgs e)
