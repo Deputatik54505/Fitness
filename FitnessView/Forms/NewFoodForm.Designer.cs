@@ -103,6 +103,11 @@ namespace FitnessView.Forms
             // 
             this.CaloryNumericUpDown.DecimalPlaces = 1;
             this.CaloryNumericUpDown.Location = new System.Drawing.Point(66, 95);
+            this.CaloryNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.CaloryNumericUpDown.Name = "CaloryNumericUpDown";
             this.CaloryNumericUpDown.Size = new System.Drawing.Size(120, 23);
             this.CaloryNumericUpDown.TabIndex = 6;
