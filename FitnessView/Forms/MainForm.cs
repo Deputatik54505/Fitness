@@ -1,5 +1,7 @@
 ﻿using BL.Controller;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace FitnessView.Forms
@@ -7,6 +9,8 @@ namespace FitnessView.Forms
     public partial class MainForm : Form
     {
         public UserController UserController { get; private set; }
+        List<double[]> rows = new List<double[]>();
+        EatingController eatingController;
         public MainForm()
         {
             InitializeComponent();
@@ -25,21 +29,9 @@ namespace FitnessView.Forms
             {
                 UserController = helloForm.UserController;
             }
-            #region dataGridView
-            dataGridView1.Columns.Add("Prots", "Prots");
-            dataGridView1.Columns.Add("Carbs", "Carbs");
-            dataGridView1.Columns.Add("Fats", "Fats");
-            dataGridView1.Columns.Add("Calory", "Calories");
-            dataGridView1.Rows.Add(UserController.activeUser.Balance.Proteins,
-                UserController.activeUser.Balance.Carbs,
-                UserController.activeUser.Balance.Fats,
-                UserController.activeUser.Balance.Calories);
-            dataGridView1.Rows[0].HeaderCell.Value = "balance";
-            UserController.Save();
+            eatingController = new EatingController(UserController);
 
-
-
-            #endregion
+            BuildDG();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,13 +43,17 @@ namespace FitnessView.Forms
         {
             var addEating = new AddEatForm(UserController);
             addEating.ShowDialog();
-            for (int i = 1; i <= addEating.EatingController.Eatings.Count; i++)
+            if (addEating.DialogResult == DialogResult.OK)
             {
-                dataGridView1.Rows.Add(addEating.EatingController.Eatings[i].Prots,
-                    addEating.EatingController.Eatings[i].Carbs,
-                    addEating.EatingController.Eatings[i].Fats,
-                    addEating.EatingController.Eatings[i].Calories);
-                dataGridView1.Rows[i].HeaderCell.Value = $"eating {i}";
+                rows.Add(new double[4]{ eatingController.Eatings.LastOrDefault().Prots ,
+                    eatingController.Eatings.LastOrDefault().Carbs,
+                    eatingController.Eatings.LastOrDefault().Fats,
+                    eatingController.Eatings.LastOrDefault().Calories});
+                dataGridView1.Rows.Add(rows[rows.Count - 1][0],
+                    rows[rows.Count - 1][1],
+                    rows[rows.Count - 1][2],
+                    rows[rows.Count - 1][3]);
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].HeaderCell.Value = $"eating №{rows.Count - 1}";
             }
         }
 
@@ -69,6 +65,35 @@ namespace FitnessView.Forms
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+        void BuildDG()
+        {
+            #region create headers and balance row
+            dataGridView1.Columns.Add("Prots", "Prots");
+            dataGridView1.Columns.Add("Carbs", "Carbs");
+            dataGridView1.Columns.Add("Fats", "Fats");
+            dataGridView1.Columns.Add("Calory", "Calories");
+            rows.Add(new double[4]{UserController.activeUser.Balance.Proteins,
+                UserController.activeUser.Balance.Carbs,
+                UserController.activeUser.Balance.Fats,
+                UserController.activeUser.Balance.Calories});
+            dataGridView1.Rows.Add(rows[0][0], rows[0][1], rows[0][2], rows[0][3]);
+            dataGridView1.Rows[0].HeaderCell.Value = "balance";
+            UserController.Save();
+            #endregion
+           
+                foreach (var eating in eatingController.Eatings)
+                {
+                    rows.Add(new double[4]{eating.Prots,
+                    eating.Carbs,
+                    eating.Fats,
+                    eating.Calories});
+                    dataGridView1.Rows.Add(rows[rows.Count - 1][0],
+                        rows[rows.Count - 1][1],
+                        rows[rows.Count - 1][2],
+                        rows[rows.Count - 1][3]);
+                }
 
         }
     }

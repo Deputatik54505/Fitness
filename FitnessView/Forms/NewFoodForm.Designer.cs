@@ -85,6 +85,7 @@ namespace FitnessView.Forms
             // 
             // ProtsNumericUpDown
             // 
+            this.ProtsNumericUpDown.DecimalPlaces = 1;
             this.ProtsNumericUpDown.Location = new System.Drawing.Point(66, 8);
             this.ProtsNumericUpDown.Name = "ProtsNumericUpDown";
             this.ProtsNumericUpDown.Size = new System.Drawing.Size(120, 23);
@@ -92,6 +93,7 @@ namespace FitnessView.Forms
             // 
             // CarbsNumericUpDown
             // 
+            this.CarbsNumericUpDown.DecimalPlaces = 1;
             this.CarbsNumericUpDown.Location = new System.Drawing.Point(66, 66);
             this.CarbsNumericUpDown.Name = "CarbsNumericUpDown";
             this.CarbsNumericUpDown.Size = new System.Drawing.Size(120, 23);
@@ -99,6 +101,7 @@ namespace FitnessView.Forms
             // 
             // CaloryNumericUpDown
             // 
+            this.CaloryNumericUpDown.DecimalPlaces = 1;
             this.CaloryNumericUpDown.Location = new System.Drawing.Point(66, 95);
             this.CaloryNumericUpDown.Name = "CaloryNumericUpDown";
             this.CaloryNumericUpDown.Size = new System.Drawing.Size(120, 23);
@@ -106,6 +109,7 @@ namespace FitnessView.Forms
             // 
             // FatsNumericUpDown
             // 
+            this.FatsNumericUpDown.DecimalPlaces = 1;
             this.FatsNumericUpDown.Location = new System.Drawing.Point(66, 37);
             this.FatsNumericUpDown.Name = "FatsNumericUpDown";
             this.FatsNumericUpDown.Size = new System.Drawing.Size(120, 23);
