@@ -43,12 +43,14 @@ namespace FitnessView.Forms
         {
             var addEating = new AddEatForm(UserController);
             addEating.ShowDialog();
+            eatingController = new EatingController(UserController);
             if (addEating.DialogResult == DialogResult.OK)
             {
-                rows.Add(new double[4]{ eatingController.Eatings.LastOrDefault().Prots ,
-                    eatingController.Eatings.LastOrDefault().Carbs,
-                    eatingController.Eatings.LastOrDefault().Fats,
-                    eatingController.Eatings.LastOrDefault().Calories});
+                var index = eatingController.Eatings.Count-1;
+                rows.Add(new double[4]{ eatingController.Eatings[index].Prots ,
+                    eatingController.Eatings[index].Carbs,
+                    eatingController.Eatings[index].Fats,
+                    eatingController.Eatings[index].Calories});
                 dataGridView1.Rows.Add(rows[rows.Count - 1][0],
                     rows[rows.Count - 1][1],
                     rows[rows.Count - 1][2],

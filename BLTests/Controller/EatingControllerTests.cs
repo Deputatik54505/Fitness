@@ -3,7 +3,6 @@ using BL.Controller;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using BL.Model;
 
 namespace BL.Controller.Tests
 {
@@ -13,18 +12,16 @@ namespace BL.Controller.Tests
         [TestMethod()]
         public void AddFoodToEatingTest()
         {
-            var userName = Guid.NewGuid().ToString();
-            var foodName = Guid.NewGuid().ToString();
             var rnd = new Random();
-            var userController = new UserController(userName);
+            var userController = new UserController(Guid.NewGuid().ToString());
+            userController.UpdateUserData(rnd.Next(50,150),rnd.Next(150,200),rnd.Next(15,99), true, 1.5);
             var eatingController = new EatingController(userController);
-            var food = new FoodModel(foodName, rnd.Next(1, 99), rnd.Next(1,99), rnd.Next(1, 99), rnd.Next(1, 399));
-            userController.UpdateUserData(100, 150, 30, true, 1.5);
-            eatingController.CreateFood(foodName, rnd.Next(1, 99), rnd.Next(1, 99), rnd.Next(1, 99), rnd.Next(1, 399));
+            var foodName = Guid.NewGuid().ToString();
+            var prots = rnd.Next(0, 30);
+            eatingController.CreateFood(foodName, prots, rnd.Next(0, 30), rnd.Next(0, 30), rnd.Next(0, 100));
             eatingController.AddFoodToEating(foodName,rnd.Next(100,1000));
 
-
-            
+            Assert.AreEqual(eatingController.Eatings[0].Prots,prots);
         }
     }
 }
