@@ -37,6 +37,8 @@ namespace FitnessView.Forms
         {
             var addFood = new NewFoodForm(EatingController);
             addFood.ShowDialog();
+            foreach (var food in EatingController.Foods)
+                comboBox1.Items.Add(food);
         }
 
         private void button1_Click(object sender, EventArgs e)

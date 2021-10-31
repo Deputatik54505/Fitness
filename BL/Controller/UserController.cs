@@ -54,7 +54,13 @@ namespace BL.Controller
             Save();
         }
 
-
+        public void ThrowBalance()
+        {
+            activeUser.ThrowBalance();
+            EatingController eatingController = new EatingController(this);
+            eatingController.Eatings.Clear();
+            Save();
+        }
         /// <summary>
         /// Save user data
         /// </summary>

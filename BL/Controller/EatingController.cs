@@ -5,14 +5,13 @@ using System.Linq;
 
 namespace BL.Controller
 {
-
     public class EatingController : ControllerBase
     {
         #region Variabels
         UserController UserController { get; }
         public List<FoodModel> Foods { get; }
         public List<Eating> Eatings { get; }
-        Dictionary<User, List<Eating>> eatingsData;
+         Dictionary<string, List<Eating>> eatingsData;
         const string FOODS_FILE_NAME = "food.dat";
         const string EATINGS_FILE_NAME = "eatings.dat";
         int eatingCount = 0;
@@ -52,8 +51,8 @@ namespace BL.Controller
         public void Save()
         {
             Save<List<FoodModel>>(FOODS_FILE_NAME, Foods);
-            eatingsData[UserController.activeUser] = Eatings;
-            Save<Dictionary<User,List<Eating>>>(EATINGS_FILE_NAME,eatingsData);
+            eatingsData[UserController.activeUser.Name] = Eatings;
+            Save<Dictionary<String,List<Eating>>>(EATINGS_FILE_NAME,eatingsData);
         }
         List<FoodModel> LoadFoodData()
         {
@@ -61,10 +60,10 @@ namespace BL.Controller
         }
         List<Eating> LoadEatingsData()
         {
-            eatingsData = Load<Dictionary<User, List<Eating>>>(EATINGS_FILE_NAME)?? new Dictionary<User, List<Eating>>();
-            if (!eatingsData.ContainsKey(UserController.activeUser))
-                eatingsData.Add(UserController.activeUser, new List<Eating>());
-            return eatingsData[UserController.activeUser];
+            eatingsData = Load<Dictionary<String, List<Eating>>>(EATINGS_FILE_NAME)?? new Dictionary<String, List<Eating>>();
+            if (!eatingsData.ContainsKey(UserController.activeUser.Name))
+                eatingsData.Add(UserController.activeUser.Name, new List<Eating>());
+            return eatingsData[UserController.activeUser.Name];
         }
         #endregion
     }
