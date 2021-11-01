@@ -15,6 +15,8 @@ namespace BL.Model
         public double Fats { get; private set; }
         public double Carbs { get; private set; }
         public double Calories { get; private set; }
+        public string FoodName { get; private set; }
+        public string Time { get; private set; }
         public Eating()
         {
             Prots = 0;
@@ -29,6 +31,8 @@ namespace BL.Model
             Fats += food.Fats * weight;
             Carbs += food.Carbs * weight;
             Calories += food.Calories * weight;
+            FoodName = food.Name;
+            Time = $"{DateTime.Now.Hour}:{DateTime.Now.Minute}";
         }
     }
 }

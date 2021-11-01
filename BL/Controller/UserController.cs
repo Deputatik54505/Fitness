@@ -59,6 +59,7 @@ namespace BL.Controller
             activeUser.ThrowBalance();
             EatingController eatingController = new EatingController(this);
             eatingController.Eatings.Clear();
+            eatingController.Save();
             Save();
         }
         /// <summary>
