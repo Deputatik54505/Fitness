@@ -111,5 +111,14 @@ namespace FitnessView.Forms
             }
         }
 
+        private void tabataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

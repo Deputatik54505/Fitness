@@ -41,7 +41,7 @@ namespace FitnessView.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(17, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 15);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@ namespace FitnessView.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 38);
+            this.label2.Location = new System.Drawing.Point(17, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 15);
             this.label2.TabIndex = 1;
@@ -58,7 +58,7 @@ namespace FitnessView.Forms
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(124, 38);
+            this.numericUpDown1.Location = new System.Drawing.Point(129, 73);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -72,7 +72,7 @@ namespace FitnessView.Forms
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 6);
+            this.comboBox1.Location = new System.Drawing.Point(128, 41);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 3;
