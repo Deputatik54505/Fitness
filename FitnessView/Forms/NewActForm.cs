@@ -12,9 +12,11 @@ namespace FitnessView.Forms
     public partial class NewActForm : Form
     {
         ExerciseController exerciseController;
-        public NewActForm(ExerciseController exerciseController)
+        int type;
+        public NewActForm(ExerciseController exerciseController,int type)
         {
             this.exerciseController = exerciseController;
+            this.type = type;
             InitializeComponent();
         }
 
@@ -30,9 +32,18 @@ namespace FitnessView.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            exerciseController.CreateActivity(textBox1.Text,(int)numericUpDown1.Value);
-            exerciseController.Save();
-            Close();
+            if (type == 0)
+            {
+                exerciseController.CreateCardioActivity(textBox1.Text, (int)numericUpDown1.Value);
+                exerciseController.Save();
+                Close();
+            }
+            else if(type == 1)
+            {
+                exerciseController.CreatePowerActivity(textBox1.Text, (int)numericUpDown1.Value);
+                exerciseController.Save();
+                Close();
+            }
         }
     }
 }

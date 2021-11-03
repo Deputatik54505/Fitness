@@ -34,9 +34,6 @@ namespace FitnessView.Forms
             this.actToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.cardioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gymToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,10 +58,6 @@ namespace FitnessView.Forms
             // 
             // actToolStripMenuItem
             // 
-            this.actToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cardioToolStripMenuItem,
-            this.gymToolStripMenuItem,
-            this.customToolStripMenuItem});
             this.actToolStripMenuItem.Name = "actToolStripMenuItem";
             this.actToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.actToolStripMenuItem.Text = "Act";
@@ -95,24 +88,6 @@ namespace FitnessView.Forms
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cardioToolStripMenuItem
-            // 
-            this.cardioToolStripMenuItem.Name = "cardioToolStripMenuItem";
-            this.cardioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cardioToolStripMenuItem.Text = "Cardio";
-            // 
-            // gymToolStripMenuItem
-            // 
-            this.gymToolStripMenuItem.Name = "gymToolStripMenuItem";
-            this.gymToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gymToolStripMenuItem.Text = "Gym";
-            // 
-            // customToolStripMenuItem
-            // 
-            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.customToolStripMenuItem.Text = "Custom";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -140,8 +115,5 @@ namespace FitnessView.Forms
         private System.Windows.Forms.ToolStripMenuItem actToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem cardioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gymToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
     }
 }

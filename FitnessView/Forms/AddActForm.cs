@@ -23,7 +23,7 @@ namespace FitnessView.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var addExercise = new NewActForm(actController);
+            var addExercise = new NewActForm(actController,(int)ActTypeBox.SelectedItem);
             addExercise.ShowDialog();
         }
 
@@ -36,15 +36,32 @@ namespace FitnessView.Forms
         private void AddActForm_Load(object sender, EventArgs e)
         {
             button1.Enabled = false;
-            foreach (var act in  actController.Activities)
-                comboBox1.Items.Add(act);
-        }
+            comboBox1.Enabled = false;
+            button2.Enabled = false;
+            ActTypeBox.Items.Add(0);
+            ActTypeBox.Items.Add(1);
 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            actController.AddExercise(comboBox1.Text,(double)numericUpDown1.Value);
-            userController.Save();
-            Close();
+
+        }
+
+        private void ActTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Enabled = true;
+            button2.Enabled = true;
+            if (ActTypeBox.SelectedItem.ToString() == "1")
+            {
+                foreach (var act in actController.ActivitiesData[1])
+                    comboBox1.Items.Add(act);
+            }
+            else if (ActTypeBox.SelectedItem.ToString() == "0")
+            {
+                foreach (var act in actController.ActivitiesData[0])
+                    comboBox1.Items.Add(act);
+            }
         }
     }
 }
