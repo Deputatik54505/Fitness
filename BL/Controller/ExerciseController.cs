@@ -8,7 +8,7 @@ namespace BL.Controller
     public class ExerciseController:ControllerBase
     {
         #region variabels
-        User User { get; }
+        UserController UserController { get; }
         public List<Exercise> Exercises { get; private set; }
         public Dictionary<int, List<Activity>> ActivitiesData { get; private set; }
         // int - type id
@@ -27,7 +27,7 @@ namespace BL.Controller
         public void CreatePowerActivity(string name, double caolriesPerTime)
         {
             var act = new Activity(name, caolriesPerTime);
-            ActivitiesData[0].Add(act);
+            ActivitiesData[1].Add(act);
             Save();
         }
         public void AddExercise(string activityName, double duration,int typeId)
@@ -39,15 +39,16 @@ namespace BL.Controller
                     return;
                 var exercise = new Exercise(activity, duration);
                 Exercises.Add(exercise);
-                this.User.Balance.Activity(exercise.Activity.CaloriesPerMinute * duration);
+                this.UserController.activeUser.Balance.Activity(exercise.Activity.CaloriesPerMinute * duration);
                 Save();
+                UserController.Save();
             }
             
         }
 
-        public ExerciseController(User user)
+        public ExerciseController(UserController userController)
         {
-            User = user ?? throw new ArgumentNullException("User cant be null", nameof(user));
+            UserController = userController ?? throw new ArgumentNullException("User cant be null", nameof(userController));
             Exercises = LoadExercises();
             ActivitiesData = LoadActivityes();
         }

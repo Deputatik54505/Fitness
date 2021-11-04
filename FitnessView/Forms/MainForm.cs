@@ -71,6 +71,7 @@ namespace FitnessView.Forms
         {
             var addAct = new AddActForm(UserController);
             addAct.ShowDialog();
+            UpdateRows();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -117,6 +118,11 @@ namespace FitnessView.Forms
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }

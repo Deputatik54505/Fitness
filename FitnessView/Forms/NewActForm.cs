@@ -18,6 +18,15 @@ namespace FitnessView.Forms
             this.exerciseController = exerciseController;
             this.type = type;
             InitializeComponent();
+            if (type == 0)
+            {
+                label1.Text = "Calories per minute";
+            }
+            if (type == 1)
+            {
+                label1.Text = "calories per time";
+                numericUpDown1.Maximum = 15;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -44,6 +53,11 @@ namespace FitnessView.Forms
                 exerciseController.Save();
                 Close();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
