@@ -20,12 +20,12 @@ namespace FitnessView.Forms
             InitializeComponent();
             if (type == 0)
             {
-                label1.Text = "Calories per minute";
+                energyCoastLabel.Text = "Calories per minute";
             }
             if (type == 1)
             {
-                label1.Text = "calories per time";
-                numericUpDown1.Maximum = 15;
+                energyCoastLabel.Text = "calories per time";
+                energyCoastNumeric.Maximum = 15;
             }
         }
 
@@ -43,13 +43,13 @@ namespace FitnessView.Forms
         {
             if (type == 0)
             {
-                exerciseController.CreateCardioActivity(textBox1.Text, (int)numericUpDown1.Value);
+                exerciseController.CreateCardioActivity(nameTextbox.Text, (int)energyCoastNumeric.Value);
                 exerciseController.Save();
                 Close();
             }
             else if(type == 1)
             {
-                exerciseController.CreatePowerActivity(textBox1.Text, (int)numericUpDown1.Value);
+                exerciseController.CreatePowerActivity(nameTextbox.Text, (int)energyCoastNumeric.Value);
                 exerciseController.Save();
                 Close();
             }

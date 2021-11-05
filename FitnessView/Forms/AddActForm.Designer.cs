@@ -29,131 +29,131 @@ namespace FitnessView.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.ActTypeBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.chooseExerciseLabel = new System.Windows.Forms.Label();
+            this.exerciseListComboBox = new System.Windows.Forms.ComboBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.newActButton = new System.Windows.Forms.Button();
+            this.ActTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.activityTipeLabel = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.setsLabel = new System.Windows.Forms.Label();
+            this.numeric1 = new System.Windows.Forms.NumericUpDown();
+            this.numeric2 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric2)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // chooseExerciseLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Choose exercise";
+            this.chooseExerciseLabel.AutoSize = true;
+            this.chooseExerciseLabel.Location = new System.Drawing.Point(17, 44);
+            this.chooseExerciseLabel.Name = "chooseExerciseLabel";
+            this.chooseExerciseLabel.Size = new System.Drawing.Size(92, 15);
+            this.chooseExerciseLabel.TabIndex = 0;
+            this.chooseExerciseLabel.Text = "Choose exercise";
             // 
-            // comboBox1
+            // exerciseListComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(128, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.exerciseListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.exerciseListComboBox.FormattingEnabled = true;
+            this.exerciseListComboBox.Location = new System.Drawing.Point(128, 41);
+            this.exerciseListComboBox.Name = "exerciseListComboBox";
+            this.exerciseListComboBox.Size = new System.Drawing.Size(121, 23);
+            this.exerciseListComboBox.TabIndex = 3;
+            this.exerciseListComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button1
+            // addButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(175, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addButton.Location = new System.Drawing.Point(175, 151);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 4;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // newActButton
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(12, 151);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "New Act";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.newActButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.newActButton.Location = new System.Drawing.Point(12, 151);
+            this.newActButton.Name = "newActButton";
+            this.newActButton.Size = new System.Drawing.Size(75, 23);
+            this.newActButton.TabIndex = 5;
+            this.newActButton.Text = "New Act";
+            this.newActButton.UseVisualStyleBackColor = true;
+            this.newActButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // ActTypeBox
+            // ActTypeComboBox
             // 
-            this.ActTypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ActTypeBox.FormattingEnabled = true;
-            this.ActTypeBox.Location = new System.Drawing.Point(128, 12);
-            this.ActTypeBox.Name = "ActTypeBox";
-            this.ActTypeBox.Size = new System.Drawing.Size(121, 23);
-            this.ActTypeBox.TabIndex = 7;
-            this.ActTypeBox.SelectedIndexChanged += new System.EventHandler(this.ActTypeBox_SelectedIndexChanged);
+            this.ActTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ActTypeComboBox.FormattingEnabled = true;
+            this.ActTypeComboBox.Location = new System.Drawing.Point(128, 12);
+            this.ActTypeComboBox.Name = "ActTypeComboBox";
+            this.ActTypeComboBox.Size = new System.Drawing.Size(121, 23);
+            this.ActTypeComboBox.TabIndex = 7;
+            this.ActTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ActTypeBox_SelectedIndexChanged);
             // 
-            // label3
+            // activityTipeLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Activity type:";
+            this.activityTipeLabel.AutoSize = true;
+            this.activityTipeLabel.Location = new System.Drawing.Point(17, 15);
+            this.activityTipeLabel.Name = "activityTipeLabel";
+            this.activityTipeLabel.Size = new System.Drawing.Size(76, 15);
+            this.activityTipeLabel.TabIndex = 6;
+            this.activityTipeLabel.Text = "Activity type:";
             // 
-            // label2
+            // label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 15);
-            this.label2.TabIndex = 8;
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(17, 72);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(0, 15);
+            this.label.TabIndex = 8;
             // 
-            // label4
+            // setsLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 15);
-            this.label4.TabIndex = 9;
+            this.setsLabel.AutoSize = true;
+            this.setsLabel.Location = new System.Drawing.Point(17, 101);
+            this.setsLabel.Name = "setsLabel";
+            this.setsLabel.Size = new System.Drawing.Size(0, 15);
+            this.setsLabel.TabIndex = 9;
             // 
-            // numericUpDown1
+            // numeric1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(130, 70);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown1.TabIndex = 10;
+            this.numeric1.Location = new System.Drawing.Point(130, 70);
+            this.numeric1.Name = "numeric1";
+            this.numeric1.Size = new System.Drawing.Size(120, 23);
+            this.numeric1.TabIndex = 10;
             // 
-            // numericUpDown2
+            // numeric2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(130, 99);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown2.TabIndex = 11;
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.numeric2.Location = new System.Drawing.Point(130, 99);
+            this.numeric2.Name = "numeric2";
+            this.numeric2.Size = new System.Drawing.Size(120, 23);
+            this.numeric2.TabIndex = 11;
+            this.numeric2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // AddActForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(262, 186);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.ActTypeBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numeric2);
+            this.Controls.Add(this.numeric1);
+            this.Controls.Add(this.setsLabel);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.ActTypeComboBox);
+            this.Controls.Add(this.activityTipeLabel);
+            this.Controls.Add(this.newActButton);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.exerciseListComboBox);
+            this.Controls.Add(this.chooseExerciseLabel);
             this.Name = "AddActForm";
             this.Text = "AddActForm";
             this.Load += new System.EventHandler(this.AddActForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,15 +161,15 @@ namespace FitnessView.Forms
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox ActTypeBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label chooseExerciseLabel;
+        private System.Windows.Forms.ComboBox exerciseListComboBox;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button newActButton;
+        private System.Windows.Forms.ComboBox ActTypeComboBox;
+        private System.Windows.Forms.Label activityTipeLabel;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label setsLabel;
+        private System.Windows.Forms.NumericUpDown numeric1;
+        private System.Windows.Forms.NumericUpDown numeric2;
     }
 }

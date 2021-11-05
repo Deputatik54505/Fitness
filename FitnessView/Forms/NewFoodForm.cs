@@ -20,28 +20,28 @@ namespace FitnessView.Forms
 
         private void NewFoodForm_Load(object sender, EventArgs e)
         {
-            button1.Enabled = false;
+            saveButton.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            eatingController.CreateFood(NameTextBox.Text,
-                (double)ProtsNumericUpDown.Value, 
-                (double)FatsNumericUpDown.Value,
-                (double)CarbsNumericUpDown.Value,
-                (double)CaloryNumericUpDown.Value);
+            eatingController.CreateFood(nameTextbox.Text,
+                (double)protsNumericUpDown.Value, 
+                (double)fatsNumericUpDown.Value,
+                (double)carbsNumericUpDown.Value,
+                (double)caloryNumericUpDown.Value);
             eatingController.Save();
             Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(NameTextBox.Text))
+            if (String.IsNullOrWhiteSpace(nameTextbox.Text))
             {
-                button1.Enabled = false;
+                saveButton.Enabled = false;
             }
             else
-                button1.Enabled = true;
+                saveButton.Enabled = true;
         }
     }
 }

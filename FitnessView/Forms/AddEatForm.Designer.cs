@@ -29,91 +29,91 @@ namespace FitnessView.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.chooseFoodLabel = new System.Windows.Forms.Label();
+            this.foodListComboBox = new System.Windows.Forms.ComboBox();
+            this.weightNumeric = new System.Windows.Forms.NumericUpDown();
+            this.weightLabel = new System.Windows.Forms.Label();
+            this.addButton = new System.Windows.Forms.Button();
+            this.newFoodButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.weightNumeric)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // chooseFoodLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Choose food";
+            this.chooseFoodLabel.AutoSize = true;
+            this.chooseFoodLabel.Location = new System.Drawing.Point(12, 9);
+            this.chooseFoodLabel.Name = "chooseFoodLabel";
+            this.chooseFoodLabel.Size = new System.Drawing.Size(75, 15);
+            this.chooseFoodLabel.TabIndex = 0;
+            this.chooseFoodLabel.Text = "Choose food";
             // 
-            // comboBox1
+            // foodListComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.foodListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.foodListComboBox.FormattingEnabled = true;
+            this.foodListComboBox.Location = new System.Drawing.Point(93, 6);
+            this.foodListComboBox.Name = "foodListComboBox";
+            this.foodListComboBox.Size = new System.Drawing.Size(121, 23);
+            this.foodListComboBox.TabIndex = 1;
+            this.foodListComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // numericUpDown1
+            // weightNumeric
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(94, 35);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.weightNumeric.Location = new System.Drawing.Point(94, 35);
+            this.weightNumeric.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown1.TabIndex = 2;
+            this.weightNumeric.Name = "weightNumeric";
+            this.weightNumeric.Size = new System.Drawing.Size(120, 23);
+            this.weightNumeric.TabIndex = 2;
             // 
-            // label2
+            // weightLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Input weight";
+            this.weightLabel.AutoSize = true;
+            this.weightLabel.Location = new System.Drawing.Point(12, 37);
+            this.weightLabel.Name = "weightLabel";
+            this.weightLabel.Size = new System.Drawing.Size(74, 15);
+            this.weightLabel.TabIndex = 3;
+            this.weightLabel.Text = "Input weight";
             // 
-            // button1
+            // addButton
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(135, 136);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.addButton.Location = new System.Drawing.Point(135, 136);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 4;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // newFoodButton
             // 
-            this.button2.Location = new System.Drawing.Point(11, 136);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "New food";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.newFoodButton.Location = new System.Drawing.Point(11, 136);
+            this.newFoodButton.Name = "newFoodButton";
+            this.newFoodButton.Size = new System.Drawing.Size(75, 23);
+            this.newFoodButton.TabIndex = 5;
+            this.newFoodButton.Text = "New food";
+            this.newFoodButton.UseVisualStyleBackColor = true;
+            this.newFoodButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // AddEatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(222, 171);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.newFoodButton);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.weightLabel);
+            this.Controls.Add(this.weightNumeric);
+            this.Controls.Add(this.foodListComboBox);
+            this.Controls.Add(this.chooseFoodLabel);
             this.Name = "AddEatForm";
             this.Text = "AddEatForm";
             this.Load += new System.EventHandler(this.AddEatForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weightNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,11 +121,11 @@ namespace FitnessView.Forms
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label chooseFoodLabel;
+        private System.Windows.Forms.ComboBox foodListComboBox;
+        private System.Windows.Forms.NumericUpDown weightNumeric;
+        private System.Windows.Forms.Label weightLabel;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button newFoodButton;
     }
 }

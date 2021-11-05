@@ -20,9 +20,9 @@ namespace FitnessView
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nametextbox.Text != null)
+            if (nameTextbox.Text != null)
             {
-                UserController userController = new UserController(nametextbox.Text);
+                UserController userController = new UserController(nameTextbox.Text);
                 if (userController.isNewUser)
                 {
                     NewUser newUserForm = new NewUser(userController);

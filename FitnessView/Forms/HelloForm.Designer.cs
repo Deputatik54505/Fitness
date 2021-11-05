@@ -29,59 +29,59 @@ namespace FitnessView
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.nametextbox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.helloLabel = new System.Windows.Forms.Label();
+            this.loginLabel = new System.Windows.Forms.Label();
+            this.nameTextbox = new System.Windows.Forms.TextBox();
+            this.okButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // helloLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Hello";
+            this.helloLabel.AutoSize = true;
+            this.helloLabel.Location = new System.Drawing.Point(12, 9);
+            this.helloLabel.Name = "helloLabel";
+            this.helloLabel.Size = new System.Drawing.Size(35, 15);
+            this.helloLabel.TabIndex = 0;
+            this.helloLabel.Text = "Hello";
             // 
-            // label2
+            // loginLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Enter your name:";
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Location = new System.Drawing.Point(12, 41);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(97, 15);
+            this.loginLabel.TabIndex = 1;
+            this.loginLabel.Text = "Enter your name:";
             // 
-            // nametextbox
+            // nameTextbox
             // 
-            this.nametextbox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.nametextbox.Location = new System.Drawing.Point(115, 41);
-            this.nametextbox.Name = "nametextbox";
-            this.nametextbox.Size = new System.Drawing.Size(171, 23);
-            this.nametextbox.TabIndex = 2;
+            this.nameTextbox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.nameTextbox.Location = new System.Drawing.Point(115, 41);
+            this.nameTextbox.Name = "nameTextbox";
+            this.nameTextbox.Size = new System.Drawing.Size(171, 23);
+            this.nameTextbox.TabIndex = 2;
             // 
-            // button1
+            // okButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(211, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.okButton.Location = new System.Drawing.Point(211, 92);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.TabIndex = 3;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // HelloForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 127);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.nametextbox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.okButton);
+            this.Controls.Add(this.nameTextbox);
+            this.Controls.Add(this.loginLabel);
+            this.Controls.Add(this.helloLabel);
             this.Name = "HelloForm";
             this.Load += new System.EventHandler(this.HelloForm_Load);
             this.ResumeLayout(false);
@@ -91,10 +91,10 @@ namespace FitnessView
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox nametextbox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label helloLabel;
+        private System.Windows.Forms.Label loginLabel;
+        private System.Windows.Forms.TextBox nameTextbox;
+        private System.Windows.Forms.Button okButton;
     }
 }
 

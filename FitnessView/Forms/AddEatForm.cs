@@ -23,14 +23,14 @@ namespace FitnessView.Forms
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            button1.Enabled = true;
+            addButton.Enabled = true;
         }
 
         private void AddEatForm_Load(object sender, EventArgs e)
         {
-            button1.Enabled = false;
+            addButton.Enabled = false;
             foreach (var food in EatingController.Foods)
-                comboBox1.Items.Add(food);
+                foodListComboBox.Items.Add(food);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,12 +38,12 @@ namespace FitnessView.Forms
             var addFood = new NewFoodForm(EatingController);
             addFood.ShowDialog();
             foreach (var food in EatingController.Foods)
-                comboBox1.Items.Add(food);
+                foodListComboBox.Items.Add(food);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EatingController.AddFoodToEating(comboBox1.Text, (double)numericUpDown1.Value);
+            EatingController.AddFoodToEating(foodListComboBox.Text, (double)weightNumeric.Value);
             Close();
         }
     }

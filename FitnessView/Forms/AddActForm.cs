@@ -7,12 +7,11 @@ namespace FitnessView.Forms
     public partial class AddActForm : Form
     {
         ExerciseController actController;
-        UserController userController;
         int selectedType;
+
         public AddActForm(UserController userController)
         {
             actController = new ExerciseController(userController);
-            this.userController = userController;
             InitializeComponent();
         }
 
@@ -24,36 +23,39 @@ namespace FitnessView.Forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            button1.Enabled = true;
+            addButton.Enabled = true;
         }
 
 
         private void AddActForm_Load(object sender, EventArgs e)
         {
-            button1.Enabled = false;
-            comboBox1.Enabled = false;
-            button2.Enabled = false;
-            label2.Enabled = false;
-            label4.Enabled = false;
-            numericUpDown2.Enabled = false;
-            numericUpDown1.Enabled = false;
-            numericUpDown2.Visible = false;
-            numericUpDown1.Visible = false;
-            ActTypeBox.Items.Add("Cardio");
-            ActTypeBox.Items.Add("Power");
+            
+            addButton.Enabled = false;
+            exerciseListComboBox.Enabled = false;
+            newActButton.Enabled = false;
+            label.Enabled = false;
+            setsLabel.Enabled = false;
+            numeric2.Enabled = false;
+            numeric1.Enabled = false;
+            numeric2.Visible = false;
+            numeric1.Visible = false;
+            ActTypeComboBox.Items.Add("Cardio");
+            ActTypeComboBox.Items.Add("Power");
 
         }
         private void button1_Click(object sender, EventArgs e)
         {
             if (selectedType == 0)
             {
-                actController.AddExercise(comboBox1.SelectedItem.ToString(), (int)numericUpDown1.Value, selectedType);
+                //add cardio exercise
+                actController.AddExercise(exerciseListComboBox.SelectedItem.ToString(), (int)numeric1.Value, selectedType);
                 Close();
             }
             else if (selectedType == 1)
             {
-                actController.AddExercise(comboBox1.SelectedItem.ToString(),
-                    (int)numericUpDown1.Value * (int)numericUpDown2.Value, 
+                //add power exercise
+                actController.AddExercise(exerciseListComboBox.SelectedItem.ToString(),
+                    (int)numeric1.Value * (int)numeric2.Value, 
                     selectedType);
                 Close();
             }
@@ -61,35 +63,42 @@ namespace FitnessView.Forms
 
         private void ActTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
-            comboBox1.Enabled = true;
-            button2.Enabled = true;
-            label2.Enabled = true;
-            numericUpDown1.Enabled = true;
-            numericUpDown1.Visible = true;
-            if (ActTypeBox.SelectedItem.ToString() == "Power")
+            exerciseListComboBox.Items.Clear();
+            exerciseListComboBox.Enabled = true;
+            newActButton.Enabled = true;
+            label.Enabled = true;
+            numeric1.Enabled = true;
+            numeric1.Visible = true;
+            if (ActTypeComboBox.SelectedItem.ToString() == "Power")
             {
+                //adding power exercises to comboBox
                 foreach (var act in actController.ActivitiesData[1])
-                    comboBox1.Items.Add(act);
+                    exerciseListComboBox.Items.Add(act);
+
+                //correct form to work with power exercises
                 selectedType = 1;
-                label4.Enabled = true;
-                label4.Text = "sets";
-                label2.Text = "reps";
-                numericUpDown1.Enabled = true;
-                numericUpDown2.Visible = true;
-                numericUpDown2.Enabled = true;
-                label4.Visible = true;
+                setsLabel.Enabled = true;
+                setsLabel.Text = "sets";
+                label.Text = "reps";
+                numeric1.Enabled = true;
+                numeric2.Visible = true;
+                numeric2.Enabled = true;
+                setsLabel.Visible = true;
             }
-            else if (ActTypeBox.SelectedItem.ToString() == "Cardio")
+            else if (ActTypeComboBox.SelectedItem.ToString() == "Cardio")
             {
-                numericUpDown2.Enabled = false;
-                numericUpDown2.Visible = false;
-                label4.Enabled = false;
-                label4.Visible = false;
-                label2.Text = "duration";
+                //adding cardio exercises to comboBox
                 foreach (var act in actController.ActivitiesData[0])
-                    comboBox1.Items.Add(act);
+                    exerciseListComboBox.Items.Add(act);
                 selectedType = 0;
+
+                // correct form to work with cardio exercises
+                numeric2.Enabled = false;
+                numeric2.Visible = false;
+                setsLabel.Enabled = false;
+                setsLabel.Visible = false;
+                label.Text = "duration";
+                
             }
         }
 

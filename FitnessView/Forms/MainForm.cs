@@ -56,11 +56,11 @@ namespace FitnessView.Forms
                     eatingController.Eatings[index].Carbs,
                     eatingController.Eatings[index].Fats,
                     eatingController.Eatings[index].Calories});
-                dataGridView1.Rows.Add(rows[rows.Count - 1][0],
+                dataGridView.Rows.Add(rows[rows.Count - 1][0],
                     rows[rows.Count - 1][1],
                     rows[rows.Count - 1][2],
                     rows[rows.Count - 1][3]);
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].HeaderCell.Value = $"eating №{rows.Count - 1}";
+                dataGridView.Rows[dataGridView.Rows.Count - 2].HeaderCell.Value = $"eating №{rows.Count - 1}";
             }
             foreach (var i in eatingController.Eatings)
                 Debug.WriteLine(i);
@@ -79,10 +79,10 @@ namespace FitnessView.Forms
         void BuildDG()
         {
             #region create headers and balance row
-            dataGridView1.Columns.Add("Prots", "Prots");
-            dataGridView1.Columns.Add("Carbs", "Carbs");
-            dataGridView1.Columns.Add("Fats", "Fats");
-            dataGridView1.Columns.Add("Calory", "Calories");
+            dataGridView.Columns.Add("Prots", "Prots");
+            dataGridView.Columns.Add("Carbs", "Carbs");
+            dataGridView.Columns.Add("Fats", "Fats");
+            dataGridView.Columns.Add("Calory", "Calories");
            
             
             #endregion
@@ -90,25 +90,25 @@ namespace FitnessView.Forms
         }
         private void UpdateRows()
         {
-            dataGridView1.Rows.Clear();
+            dataGridView.Rows.Clear();
             rows = new List<double[]>();
             rows.Add(new double[4]{UserController.activeUser.Balance.Proteins,
                 UserController.activeUser.Balance.Carbs,
                 UserController.activeUser.Balance.Fats,
                 UserController.activeUser.Balance.Calories});
-            dataGridView1.Rows.Add(rows[0][0], rows[0][1], rows[0][2], rows[0][3]);
-            dataGridView1.Rows[0].HeaderCell.Value = "balance";
+            dataGridView.Rows.Add(rows[0][0], rows[0][1], rows[0][2], rows[0][3]);
+            dataGridView.Rows[0].HeaderCell.Value = "balance";
             foreach (var eating in eatingController.Eatings)
             {
                 rows.Add(new double[4]{eating.Prots,
                     eating.Carbs,
                     eating.Fats,
                     eating.Calories});
-                dataGridView1.Rows.Add(rows[rows.Count - 1][0],
+                dataGridView.Rows.Add(rows[rows.Count - 1][0],
                     rows[rows.Count - 1][1],
                     rows[rows.Count - 1][2],
                     rows[rows.Count - 1][3]);
-                dataGridView1.Rows[rows.Count - 1].HeaderCell.Value = $"{eating.FoodName}, {eating.Time}";
+                dataGridView.Rows[rows.Count - 1].HeaderCell.Value = $"{eating.FoodName}, {eating.Time}";
             }
         }
 
