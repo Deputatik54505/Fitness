@@ -1,11 +1,5 @@
 ﻿using BL.Controller;
-using BL.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FitnessView.Forms
@@ -84,6 +78,7 @@ namespace FitnessView.Forms
                 numericUpDown1.Enabled = true;
                 numericUpDown2.Visible = true;
                 numericUpDown2.Enabled = true;
+                label4.Visible = true;
             }
             else if (ActTypeBox.SelectedItem.ToString() == "Cardio")
             {
