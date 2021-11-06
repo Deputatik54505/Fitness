@@ -7,6 +7,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace BL.Controller
 {
+    /// <summary>
+    /// Main controller of app
+    /// it saving users and his balance 
+    /// </summary>
     public class UserController : ControllerBase
     {
         public List<User> Users { get; }
@@ -54,6 +58,9 @@ namespace BL.Controller
             Save();
         }
 
+        /// <summary>
+        /// discards the user’s balance
+        /// </summary>
         public void ThrowBalance()
         {
             activeUser.ThrowBalance();

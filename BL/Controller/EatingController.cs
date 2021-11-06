@@ -14,7 +14,6 @@ namespace BL.Controller
          Dictionary<string, List<Eating>> eatingsData;
         const string FOODS_FILE_NAME = "food.dat";
         const string EATINGS_FILE_NAME = "eatings.dat";
-        int eatingCount = 0;
         #endregion
 
         public EatingController(UserController userController)
@@ -23,7 +22,6 @@ namespace BL.Controller
 
             Foods = LoadFoodData();
             Eatings = LoadEatingsData();
-            
             
         }
 
@@ -38,8 +36,11 @@ namespace BL.Controller
         public bool AddFoodToEating(string foodName, double weight)
         {
             var food = Foods.SingleOrDefault(f => f.Name == foodName);
-            Eatings.Add(new Eating());
-            Eatings[Eatings.Count-1].AddFood(food,weight);
+            if (Eatings.Count==0 || DateTime.Now.Hour.ToString() != Eatings[Eatings.Count - 1].Time.Split(":")[0])
+            {
+                Eatings.Add(new Eating());
+            }
+            Eatings[Eatings.Count - 1].AddFood(food, weight);
             Save();
             this.UserController.activeUser.Balance.Eating(food.Calories * weight, food.Proteins * weight, food.Carbs * weight, food.Fats * weight);
             UserController.Save();

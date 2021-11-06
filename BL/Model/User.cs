@@ -13,9 +13,21 @@ namespace BL.Model
         public int Age {  get; private set; }
         public double Weight { get; private set; }
         public int Height { get; private set; }
+
+        /// <summary>
+        /// true - female
+        /// false - male
+        /// </summary>
         public bool Gender { get; private  set; }
+        /// <summary>
+        /// start by 1.2 
+        /// end  by 2.0
+        /// </summary>
         public double ActCoeff { get; private set; }
 
+        /// <summary>
+        /// how much user shud eat or act to be great)
+        /// </summary>
         public Balance Balance { get; private set; }
         
         #endregion
@@ -27,7 +39,15 @@ namespace BL.Model
             
         }
 
-
+        /// <summary>
+        /// It is first step after create user
+        /// </summary>
+        /// <param name="weight"> (30;200) </param>
+        /// <param name="height"> (10;100) </param>
+        /// <param name="age"></param>
+        /// <param name="gender"> true - female 
+        ///  false - male </param>
+        /// <param name="actCoeff"> 1.2 to 2.0</param>
         public void AddСharacteristics(double weight, int height, int age, bool gender, double actCoeff)
         {
             if (age < 10 || age > 100)
@@ -46,7 +66,11 @@ namespace BL.Model
 
             ThrowBalance();
         }
-
+        /// <summary>
+        /// Dont use that. it dont save any changes
+        /// 
+        /// discards the user’s balance
+        /// </summary>
         public void ThrowBalance()
         {
             var genderfluens = 0;

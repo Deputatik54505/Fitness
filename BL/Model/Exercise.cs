@@ -12,6 +12,7 @@ namespace BL.Model
 
         public double Duration { get; }
         public Activity Activity { get; }
+
         public Exercise(Activity activity, double duration)
         {
             if (duration < 0)

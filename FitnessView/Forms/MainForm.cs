@@ -108,7 +108,7 @@ namespace FitnessView.Forms
                     rows[rows.Count - 1][1],
                     rows[rows.Count - 1][2],
                     rows[rows.Count - 1][3]);
-                dataGridView.Rows[rows.Count - 1].HeaderCell.Value = $"{eating.FoodName}, {eating.Time}";
+                dataGridView.Rows[rows.Count - 1].HeaderCell.Value = $"Eating number {eatingController.Eatings.Count}";
             }
         }
 
